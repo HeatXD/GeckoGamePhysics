@@ -14,7 +14,7 @@ jobs:
     runs-on: ${{ matrix.platform }}
     steps:
     - name: Install MinGW
-      if: matrix.platform == windows-latest
+      if: matrix.platform == 'windows-latest'
       uses: egor-tensin/setup-mingw@v2
     - uses: actions/checkout@v2
     - name: run tests
