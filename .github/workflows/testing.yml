@@ -16,10 +16,11 @@ jobs:
     runs-on: ${{ matrix.platform }}
     steps:
     
-    - name: Set up MinGW
     - uses: egor-tensin/setup-mingw@v2
+    - name: Set up MinGW
       with:
-        platform: windows-latest
+        platform: x64
+      if: matrix.os == 'windows-latest'
         
     - uses: actions/checkout@v2
     - name: run tests
