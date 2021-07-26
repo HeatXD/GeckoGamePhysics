@@ -3,8 +3,8 @@
 
 #include "ext/fpm/fixed.hpp"
 
-
-namespace ggp{
+namespace ggp
+{
     using fix16 = fpm::fixed_16_16;
 }
 #endif // GGP_FIXED_H

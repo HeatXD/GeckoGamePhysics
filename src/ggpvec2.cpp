@@ -37,6 +37,13 @@ Vec2 Vec2::operator*(int num)
     vec.Y = this->Y * num;
     return vec;
 }
+Vec2 Vec2::operator*(float num)
+{
+    Vec2 vec;
+    vec.X = this->X * fix16{num};
+    vec.Y = this->Y * fix16{num};
+    return vec;
+}
 
 Vec2 Vec2::operator*(const Vec2 &v)
 {
@@ -70,6 +77,14 @@ Vec2 Vec2::operator/(int num)
     return vec;
 }
 
+Vec2 Vec2::operator/(float num)
+{
+    Vec2 vec;
+    vec.X = this->X / fix16{num};
+    vec.Y = this->Y / fix16{num};
+    return vec;
+}
+
 Vec2 Vec2::operator+(const Vec2 &v)
 {
     Vec2 vec;
@@ -94,6 +109,14 @@ Vec2 Vec2::operator+(int num)
     return vec;
 }
 
+Vec2 Vec2::operator+(float num)
+{
+    Vec2 vec;
+    vec.X = this->X + fix16{num};
+    vec.Y = this->Y + fix16{num};
+    return vec;
+}
+
 Vec2 Vec2::operator-(const Vec2 &v)
 {
     Vec2 vec;
@@ -109,11 +132,20 @@ Vec2 Vec2::operator-(fix16 num)
     vec.Y = this->Y - num;
     return vec;
 }
+
 Vec2 Vec2::operator-(int num)
 {
     Vec2 vec;
     vec.X = this->X - num;
     vec.Y = this->Y - num;
+    return vec;
+}
+
+Vec2 Vec2::operator-(float num)
+{
+    Vec2 vec;
+    vec.X = this->X - fix16{num};
+    vec.Y = this->Y - fix16{num};
     return vec;
 }
 
@@ -138,6 +170,13 @@ Vec2 &Vec2::operator+=(int num)
     return *this;
 }
 
+Vec2 &Vec2::operator+=(float num)
+{
+    this->X += fix16{num};
+    this->Y += fix16{num};
+    return *this;
+}
+
 Vec2 &Vec2::operator-=(const Vec2 &v)
 {
     this->X -= v.X;
@@ -156,6 +195,13 @@ Vec2 &Vec2::operator-=(int num)
 {
     this->X -= num;
     this->Y -= num;
+    return *this;
+}
+
+Vec2 &Vec2::operator-=(float num)
+{
+    this->X -= fix16{num};
+    this->Y -= fix16{num};
     return *this;
 }
 
@@ -180,6 +226,13 @@ Vec2 &Vec2::operator*=(int num)
     return *this;
 }
 
+Vec2 &Vec2::operator*=(float num)
+{
+    this->X *= fix16{num};
+    this->Y *= fix16{num};
+    return *this;
+}
+
 Vec2 &Vec2::operator/=(const Vec2 &v)
 {
     this->X /= v.X;
@@ -198,6 +251,13 @@ Vec2 &Vec2::operator/=(int num)
 {
     this->X /= num;
     this->Y /= num;
+    return *this;
+}
+
+Vec2 &Vec2::operator/=(float num)
+{
+    this->X /= fix16{num};
+    this->Y /= fix16{num};
     return *this;
 }
 // Should only be used for visualization purposes

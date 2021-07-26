@@ -3,22 +3,22 @@
 
 #include "ggpfixed.h"
 
-namespace ggp{
-
+namespace ggp
+{
     // Should only be used for visualization purposes
     struct Vec2f
     {
-        float X,Y;
+        float X, Y;
     };
-    
+
     struct Vec2
     {
-        fix16 X,Y;
+        fix16 X, Y;
 
         Vec2();
-        Vec2(int _x,int _y);
-        Vec2(fix16 _x,fix16 _y);
-        Vec2(float _x,float _y);
+        Vec2(int _x, int _y);
+        Vec2(fix16 _x, fix16 _y);
+        Vec2(float _x, float _y);
 
         // Should only be used for visualization purposes
         Vec2f ToFloatVector();
@@ -27,28 +27,37 @@ namespace ggp{
         Vec2 operator/(int num);
         Vec2 operator+(int num);
         Vec2 operator-(int num);
-        Vec2& operator+=(int num);
-        Vec2& operator-=(int num);
-        Vec2& operator*=(int num);
-        Vec2& operator/=(int num);
+        Vec2 &operator+=(int num);
+        Vec2 &operator-=(int num);
+        Vec2 &operator*=(int num);
+        Vec2 &operator/=(int num);
+
+        Vec2 operator*(float num);
+        Vec2 operator/(float num);
+        Vec2 operator+(float num);
+        Vec2 operator-(float num);
+        Vec2 &operator+=(float num);
+        Vec2 &operator-=(float num);
+        Vec2 &operator*=(float num);
+        Vec2 &operator/=(float num);
 
         Vec2 operator*(fix16 num);
         Vec2 operator/(fix16 num);
         Vec2 operator+(fix16 num);
         Vec2 operator-(fix16 num);
-        Vec2& operator+=(fix16 num);
-        Vec2& operator-=(fix16 num);
-        Vec2& operator*=(fix16 num);
-        Vec2& operator/=(fix16 num);
+        Vec2 &operator+=(fix16 num);
+        Vec2 &operator-=(fix16 num);
+        Vec2 &operator*=(fix16 num);
+        Vec2 &operator/=(fix16 num);
 
-        Vec2 operator*(const Vec2& v);
-        Vec2 operator/(const Vec2& v);
-        Vec2 operator+(const Vec2& v);
-        Vec2 operator-(const Vec2& v);
-        Vec2& operator+=(const Vec2& v);
-        Vec2& operator-=(const Vec2& v);
-        Vec2& operator*=(const Vec2& v);
-        Vec2& operator/=(const Vec2& v);
+        Vec2 operator*(const Vec2 &v);
+        Vec2 operator/(const Vec2 &v);
+        Vec2 operator+(const Vec2 &v);
+        Vec2 operator-(const Vec2 &v);
+        Vec2 &operator+=(const Vec2 &v);
+        Vec2 &operator-=(const Vec2 &v);
+        Vec2 &operator*=(const Vec2 &v);
+        Vec2 &operator/=(const Vec2 &v);
     };
 }
 
