@@ -29,7 +29,7 @@ namespace ggp
         Rect(ObjectHandle parent, ShapeHandle self);
         Rect(ObjectHandle parent, ShapeHandle self, Vec2 position, Vec2 size);
 
-        bool TestCollision(Shape *shape)
+        bool TestCollision(Shape *shape) override
         {
             return shape->CheckCollision(this);
         };
@@ -47,7 +47,7 @@ namespace ggp
         Circle(ObjectHandle parent, ShapeHandle self, Vec2 position, float radius);
         Circle(ObjectHandle parent, ShapeHandle self, Vec2 position, fix16 radius);
 
-        bool TestCollision(Shape *shape)
+        bool TestCollision(Shape *shape) override
         {
             return shape->CheckCollision(this);
         };
