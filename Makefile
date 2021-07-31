@@ -3,5 +3,5 @@ all:
 	./bin/main
 
 test-run:
-	g++ test/*.cpp  src/*.cpp -o bin/tests -std=c++14
+	g++ test/*.cpp  src/*.cpp -o bin/tests -std=c++14 -Wall
 	./bin/tests
