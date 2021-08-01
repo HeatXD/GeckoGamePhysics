@@ -2,6 +2,8 @@
 #define GGP_BODY_H
 
 #include "ggpvec2.h"
+#include "ggpshape.h"
+#include <vector>
 
 namespace ggp
 {
@@ -10,6 +12,7 @@ namespace ggp
     struct Object
     {
         ObjectHandle Handle;
+        std::vector<ShapeHandle> Shapes;
 
     private:
         Object(){};
