@@ -3,14 +3,14 @@
 
 #include "ggpvec2.h"
 #include "ggpbody.h"
+#include "ggphandles.h"
 
 namespace ggp
 {
-    typedef uint32_t ShapeHandle;
-
     struct Rect;
     struct Circle;
-    //! should not be used directly
+
+    //! should not be used directly as an object
     struct Shape
     {
         ObjectHandle Parent;
@@ -51,7 +51,7 @@ namespace ggp
         {
             return shape->CheckCollision(this);
         };
-        
+
         bool CheckCollision(Rect *rect) override;
         bool CheckCollision(Circle *circle) override;
     };

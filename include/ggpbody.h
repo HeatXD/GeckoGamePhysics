@@ -3,12 +3,12 @@
 
 #include "ggpvec2.h"
 #include "ggpshape.h"
+#include "ggphandles.h"
 #include <vector>
 
 namespace ggp
 {
-    typedef uint32_t ObjectHandle;
-    //! should not be used directly
+    //! should not be used directly as an object
     struct Object
     {
         ObjectHandle Handle;
