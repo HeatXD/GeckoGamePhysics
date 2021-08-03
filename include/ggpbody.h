@@ -13,13 +13,20 @@ namespace ggp
     {
         ObjectHandle Handle;
         std::set<ShapeHandle> Shapes;
+        // Objects can die by getting their handles moved to the graveyard
+        // these handles will be reused for new Objects. Dead Objects are ingnored
+        // in the simulation and cannot be used.
+        bool IsDead;
+        // Disabeld Objects are ignored during the simulation.
+        // These Objects can be re-enabled.
+        bool IsDisabled;
 
         Vec2 Position;
 
         void AddShape(ShapeHandle shape);
 
     protected:
-        Object(){};
+        Object() : IsDead(false), IsDisabled(false){};
     };
 
     struct Body : Object

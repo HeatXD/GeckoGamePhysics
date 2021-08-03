@@ -1,4 +1,5 @@
 #include "../include/ggpshape.h"
+#include "../include/ggpalgo.h"
 #include <iostream>
 
 using namespace ggp;
@@ -6,6 +7,11 @@ using namespace ggp;
 void Shape::SetParent(ObjectHandle parent)
 {
     this->Parent = parent;
+}
+
+void Shape::SetLocalPosition(Vec2 position)
+{
+    this->LocalPosition = position;
 }
 
 Rect::Rect(ObjectHandle parent, ShapeHandle self)

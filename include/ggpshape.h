@@ -15,6 +15,13 @@ namespace ggp
     {
         ObjectHandle Parent;
         ShapeHandle Handle;
+        // Shapes can die by getting their handles moved to the graveyard
+        // these handles will be reused for new Shapes. Dead Shapes are ingnored
+        // in the simulation and cannot be used.
+        bool IsDead;
+        // Disabeld Shapes are ignored during the simulation.
+        // These Shapes can be re-enabled.
+        bool IsDisabled;
 
         Vec2 LocalPosition;
 
@@ -24,6 +31,8 @@ namespace ggp
         virtual bool TestCollision(Shape *shape) = 0;
         virtual bool CheckCollision(Rect *rect) { return false; };
         virtual bool CheckCollision(Circle *cicle) { return false; };
+
+        Shape() : IsDead(false), IsDisabled(false){};
     };
 
     struct Rect : Shape
