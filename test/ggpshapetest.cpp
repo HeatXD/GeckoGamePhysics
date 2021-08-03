@@ -1,5 +1,6 @@
 #include "../include/ext/doctest/doctest.h"
 #include "../include/ggpshape.h"
+#include "../include/ggpbody.h"
 
 TEST_CASE("Testing TestCollision"){
     ggp::Rect r1 = ggp::Rect(1,1);

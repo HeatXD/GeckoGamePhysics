@@ -4,34 +4,35 @@
 #include "ggpvec2.h"
 #include "ggpshape.h"
 #include "ggphandles.h"
-#include <vector>
+#include <set>
 
 namespace ggp
 {
-    //! should not be used directly as an object
+    //! should not be instantiated
     struct Object
     {
         ObjectHandle Handle;
-        std::vector<ShapeHandle> Shapes;
+        std::set<ShapeHandle> Shapes;
 
-    private:
+        Vec2 Position;
+
+        void AddShape(ShapeHandle shape);
+
+    protected:
         Object(){};
     };
 
     struct Body : Object
     {
-        Vec2 Position;
         Vec2 Velocity;
         Vec2 Acceleration;
 
         Body(ObjectHandle self);
-        Body(ObjectHandle self, Vec2 position, Vec2 velocity, Vec2 acceleration);
+        Body(ObjectHandle self, Vec2 pos, Vec2 vel, Vec2 accel);
     };
 
     struct Trigger : Object
     {
-        Vec2 Position;
-
         Trigger(ObjectHandle self);
         Trigger(ObjectHandle self, Vec2 position);
     };

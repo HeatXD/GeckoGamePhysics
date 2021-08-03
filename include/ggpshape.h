@@ -10,11 +10,16 @@ namespace ggp
     struct Rect;
     struct Circle;
 
-    //! should not be used directly as an object
+    //! should not be instantiated
     struct Shape
     {
         ObjectHandle Parent;
         ShapeHandle Handle;
+
+        Vec2 LocalPosition;
+
+        void SetParent(ObjectHandle parent);
+        void SetLocalPosition(Vec2 position);
 
         virtual bool TestCollision(Shape *shape) = 0;
         virtual bool CheckCollision(Rect *rect) { return false; };
@@ -23,7 +28,6 @@ namespace ggp
 
     struct Rect : Shape
     {
-        Vec2 LocalPosition;
         Vec2 Size;
 
         Rect(ObjectHandle parent, ShapeHandle self);
@@ -40,7 +44,6 @@ namespace ggp
 
     struct Circle : Shape
     {
-        Vec2 LocalPosition;
         fix16 Radius;
 
         Circle(ObjectHandle parent, ShapeHandle self);

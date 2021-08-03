@@ -3,6 +3,11 @@
 
 using namespace ggp;
 
+void Shape::SetParent(ObjectHandle parent)
+{
+    this->Parent = parent;
+}
+
 Rect::Rect(ObjectHandle parent, ShapeHandle self)
 {
     this->Parent = parent;

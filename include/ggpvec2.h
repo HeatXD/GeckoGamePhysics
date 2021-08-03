@@ -16,9 +16,9 @@ namespace ggp
         fix16 X, Y;
 
         Vec2();
-        Vec2(int _x, int _y);
-        Vec2(fix16 _x, fix16 _y);
-        Vec2(float _x, float _y);
+        Vec2(int x, int y);
+        Vec2(fix16 x, fix16 y);
+        Vec2(float x, float y);
 
         // Should only be used for visualization purposes
         Vec2f ToFloatVector();
