@@ -20,7 +20,6 @@ namespace ggp
         // Disabeld Objects are ignored during the simulation.
         // These Objects can be re-enabled.
         bool IsDisabled;
-
         Vec2 Position;
 
         void AddShape(ShapeHandle shape);
