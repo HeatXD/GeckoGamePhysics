@@ -1,5 +1,5 @@
-#ifndef GGP_BODY_H
-#define GGP_BODY_H
+#ifndef GGP_OBJECT_H
+#define GGP_OBJECT_H
 
 #include "ggpvec2.h"
 #include "ggpshape.h"
@@ -8,24 +8,30 @@
 
 namespace ggp
 {
-    //! should not be instantiated
+    //! should not be instantiated. only the world is allowed to.
     struct Object
     {
-        ObjectHandle Handle;
+
+        friend struct World;
+
         std::set<ShapeHandle> Shapes;
-        // Objects can die by getting their handles moved to the graveyard
-        // these handles will be reused for new Objects. Dead Objects are ingnored
-        // in the simulation and cannot be used.
-        bool IsDead;
-        // Disabeld Objects are ignored during the simulation.
-        // These Objects can be re-enabled.
-        bool IsDisabled;
+
         Vec2 Position;
 
         void AddShape(ShapeHandle shape);
 
     protected:
-        Object() : IsDead(false), IsDisabled(false){};
+        ObjectHandle _handle;
+        // Objects can die by getting their handles moved to the graveyard
+        // these handles will be reused for new Objects. Dead Objects are ingnored
+        // in the simulation and cannot be used.
+        // Objects die by calling the RemoveObjectfunction In the World struct.
+        bool _isDead;
+        // Disabeld Objects are ignored during the simulation.
+        // These Objects can be re-enabled.
+        bool _isDisabled;
+
+        Object() : _handle(0), _isDead(false), _isDisabled(false){};
     };
 
     struct Body : Object
@@ -33,15 +39,18 @@ namespace ggp
         Vec2 Velocity;
         Vec2 Acceleration;
 
+        Body(){};
         Body(ObjectHandle self);
         Body(ObjectHandle self, Vec2 pos, Vec2 vel, Vec2 accel);
     };
 
     struct Trigger : Object
     {
+
+        Trigger(){};
         Trigger(ObjectHandle self);
         Trigger(ObjectHandle self, Vec2 position);
     };
 } // namespace ggp
 
-#endif // GGP_BODY_H
+#endif // GGP_OBJECT_H

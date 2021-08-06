@@ -2,7 +2,7 @@
 #define GGP_SHAPE_H
 
 #include "ggpvec2.h"
-#include "ggpbody.h"
+#include "ggpobject.h"
 #include "ggphandles.h"
 
 namespace ggp
@@ -13,26 +13,29 @@ namespace ggp
     //! should not be instantiated
     struct Shape
     {
-        ObjectHandle Parent;
-        ShapeHandle Handle;
-        // Shapes can die by getting their handles moved to the graveyard
-        // these handles will be reused for new Shapes. Dead Shapes are ingnored
-        // in the simulation and cannot be used.
-        bool IsDead;
-        // Disabeld Shapes are ignored during the simulation.
-        // These Shapes can be re-enabled.
-        bool IsDisabled;
+        friend struct World;
 
         Vec2 LocalPosition;
 
         void SetParent(ObjectHandle parent);
         void SetLocalPosition(Vec2 position);
 
-        virtual bool TestCollision(Shape *shape) = 0;
+        virtual bool TestCollision(Shape *shape) { return false; };
         virtual bool CheckCollision(Rect *rect) { return false; };
         virtual bool CheckCollision(Circle *cicle) { return false; };
 
-        Shape() : IsDead(false), IsDisabled(false){};
+    protected:
+        ObjectHandle _parent;
+        ShapeHandle _handle;
+        // Shapes can die by getting their handles moved to the graveyard
+        // these handles will be reused for new Shapes. Dead Shapes are ingnored
+        // in the simulation and cannot be used.
+        bool _isDead;
+        // Disabeld Shapes are ignored during the simulation.
+        // These Shapes can be re-enabled.
+        bool _isDisabled;
+
+        Shape() : _isDead(false), _isDisabled(false){};
     };
 
     struct Rect : Shape
