@@ -23,6 +23,9 @@ namespace ggp
         Shape *GetShape(ShapeHandle handle);
         void RemoveShape(ShapeHandle handle);
 
+        Vec2 ShapeGetGlobalPosition(ShapeHandle handle);
+        void ShapeSetGlobalPosition(ShapeHandle handle, Vec2 globalPosition);
+
         void Step(fix16 dt);
 
     private:

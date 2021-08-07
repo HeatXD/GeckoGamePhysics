@@ -9,6 +9,37 @@ namespace ggp
         this->_counters[1] = 1;
     }
 
+    void World::ShapeSetGlobalPosition(ShapeHandle handle, Vec2 globalPosition)
+    {
+        // Get The shape
+        Shape *s = GetShape(handle);
+        // Get Parent
+        Object *obj = GetObject(s->_parent);
+        //check if parent is not NULL
+        if (obj != nullptr)
+        {
+            //set global position
+            Vec2 diff = obj->Position - globalPosition;
+            s->LocalPosition += diff;
+        }
+    }
+
+    Vec2 World::ShapeGetGlobalPosition(ShapeHandle handle)
+    {
+        // Get The shape
+        Shape *s = GetShape(handle);
+        // Get Parent
+        Object *obj = GetObject(s->_parent);
+        //check if parent is not NULL
+        if (obj != nullptr)
+        {
+            //return global position
+            return s->LocalPosition + obj->Position;
+        }
+        // return empty vector
+        return Vec2();
+    }
+
     void World::Step(fix16 dt)
     {
     }
