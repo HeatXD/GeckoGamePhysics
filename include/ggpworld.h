@@ -11,8 +11,9 @@
 
 namespace ggp
 {
-    struct World
+    class World
     {
+    public:
         World();
 
         ObjectHandle AddObject(Object &obj);

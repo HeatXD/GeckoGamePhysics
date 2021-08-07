@@ -5,8 +5,8 @@
 // these handles essentially point to the index in the vector where the Object is stored 
 namespace ggp
 {
-    typedef uint32_t ShapeHandle;
-    typedef uint32_t ObjectHandle;
+    using ShapeHandle = uint32_t;
+    using ObjectHandle = uint32_t;
 }
 
 #endif // GGP_HANDLES_H

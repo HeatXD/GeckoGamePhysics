@@ -4,32 +4,6 @@
 
 namespace ggp
 {
-
-    // void Shape::SetGlobalPosition(World *world, Vec2 globalPosition)
-    // {
-    //     Object *obj = world->GetObject(this->_parent);
-    //     //check if parent is not NULL
-    //     if (obj != nullptr)
-    //     {
-    //         //set global position
-    //         Vec2 diff = obj->Position - globalPosition;
-    //         this->LocalPosition += diff;
-    //     }
-    // }
-
-    // Vec2 Shape::GetGlobalPosition(World *world)
-    // {
-    //     Object* obj = world->GetObject(this->_parent);
-    //     //check if parent is not NULL
-    //     if (obj != nullptr)
-    //     {
-    //         //return global position
-    //         return this->LocalPosition + obj->Position;
-    //     }
-    //     // return empty vector
-    //     return Vec2();
-    // }
-
     Rect::Rect(ObjectHandle parent, ShapeHandle self)
     {
         this->_parent = parent;

@@ -9,8 +9,9 @@
 namespace ggp
 {
     //! should not be instantiated
-    struct Object
+    class Object
     {
+    public:
         friend struct World;
 
         std::set<ShapeHandle> Shapes;
@@ -33,8 +34,9 @@ namespace ggp
         Object() : _handle(0), _isDead(false), _isDisabled(false){};
     };
 
-    struct Body : Object
+    class Body : Object
     {
+    public:
         Vec2 Velocity;
         Vec2 Acceleration;
 
@@ -43,9 +45,9 @@ namespace ggp
         Body(ObjectHandle self, Vec2 pos, Vec2 vel, Vec2 accel);
     };
 
-    struct Trigger : Object
+    class Trigger : Object
     {
-
+        public:
         Trigger(){};
         Trigger(ObjectHandle self);
         Trigger(ObjectHandle self, Vec2 position);

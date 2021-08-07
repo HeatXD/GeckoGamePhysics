@@ -2,18 +2,18 @@
 #define GGP_SHAPE_H
 
 #include "ggpvec2.h"
-#include "ggpobject.h"
 #include "ggphandles.h"
 
 namespace ggp
 {
-    struct Rect;
-    struct Circle;
+    class Rect;
+    class Circle;
 
     //! should not be instantiated.
-    struct Shape
+    class Shape
     {
-        friend struct World;
+    public:
+        friend class World;
         Vec2 LocalPosition;
 
         virtual bool TestCollision(Shape *shape) { return false; };
@@ -34,11 +34,11 @@ namespace ggp
         bool _isDisabled;
 
         Shape() : _isDead(false), _isDisabled(false){};
-
     };
 
-    struct Rect : Shape
+    class Rect : public Shape
     {
+    public:
         Vec2 Size;
 
         Rect(ObjectHandle parent, ShapeHandle self);
@@ -53,8 +53,9 @@ namespace ggp
         bool CheckCollision(Circle *circle) override;
     };
 
-    struct Circle : Shape
+    class Circle : public Shape
     {
+    public:
         fix16 Radius;
 
         Circle(ObjectHandle parent, ShapeHandle self);
