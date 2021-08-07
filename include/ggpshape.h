@@ -20,6 +20,8 @@ namespace ggp
         virtual bool CheckCollision(Rect *rect) { return false; };
         virtual bool CheckCollision(Circle *cicle) { return false; };
 
+        ~Shape() = default;
+
     protected:
         ObjectHandle _parent;
         ShapeHandle _handle;
@@ -32,6 +34,7 @@ namespace ggp
         bool _isDisabled;
 
         Shape() : _isDead(false), _isDisabled(false){};
+
     };
 
     struct Rect : Shape
