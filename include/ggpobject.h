@@ -1,17 +1,16 @@
 #ifndef GGP_OBJECT_H
 #define GGP_OBJECT_H
 
-#include "ggpvec2.h"
-#include "ggpshape.h"
-#include "ggphandles.h"
 #include <set>
+
+#include "ggphandles.h"
+#include "ggpvec2.h"
 
 namespace ggp
 {
-    //! should not be instantiated. only the world is allowed to.
+    //! should not be instantiated
     struct Object
     {
-
         friend struct World;
 
         std::set<ShapeHandle> Shapes;

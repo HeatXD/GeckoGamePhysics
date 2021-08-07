@@ -1,16 +1,16 @@
 #ifndef GGP_WORLD_H
 #define GGP_WORLD_H
 
-#include "ggpshape.h"
-#include "ggpobject.h"
-#include "ggphandles.h"
-
 #include <vector>
 #include <set>
 
+#include "ggphandles.h"
+#include "ggpvec2.h"
+#include "ggpobject.h"
+#include "ggpshape.h"
+
 namespace ggp
 {
-
     struct World
     {
         World();
@@ -32,7 +32,7 @@ namespace ggp
         uint32_t _counters[2];
         // Where the objects are stored
         std::vector<Object> _objects;
-        std::vector<ggp::Shape> _shapes;
+        std::vector<Shape> _shapes;
         // Graveyards for dead objects and shapes
         // Dead item handles will be reused for new items
         std::set<ObjectHandle> _deadObjects;

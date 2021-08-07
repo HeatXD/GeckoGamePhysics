@@ -10,15 +10,11 @@ namespace ggp
     struct Rect;
     struct Circle;
 
-    //! should not be instantiated
+    //! should not be instantiated.
     struct Shape
     {
         friend struct World;
-
         Vec2 LocalPosition;
-
-        void SetParent(ObjectHandle parent);
-        void SetLocalPosition(Vec2 position);
 
         virtual bool TestCollision(Shape *shape) { return false; };
         virtual bool CheckCollision(Rect *rect) { return false; };
