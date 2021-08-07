@@ -20,7 +20,7 @@ namespace ggp
         virtual bool CheckCollision(Rect *rect) { return false; };
         virtual bool CheckCollision(Circle *cicle) { return false; };
 
-        ~Shape() = default;
+        virtual ~Shape() = default;
 
     protected:
         ObjectHandle _parent;
