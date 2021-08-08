@@ -31,8 +31,8 @@ namespace ggp
 
     private:
         // Counters to track where in the vector the next Item should be stored
-        // Counters[0] == Objects
-        // Counters[1] == Shapes
+        // Counters[0] == Object count
+        // Counters[1] == Shape count
         uint32_t _counters[2];
         // Where the objects are stored
         std::vector<Object> _objects;

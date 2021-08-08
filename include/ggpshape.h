@@ -9,12 +9,14 @@ namespace ggp
     class Rect;
     class Circle;
 
-    //! should not be instantiated.
+    //! should not be instantiated by anything else then the World.
     class Shape
     {
     public:
         friend class World;
         Vec2 LocalPosition;
+
+        ShapeHandle GetHandle(){ return _handle;};
 
         virtual bool TestCollision(Shape *shape) { return false; };
         virtual bool CheckCollision(Rect *rect) { return false; };

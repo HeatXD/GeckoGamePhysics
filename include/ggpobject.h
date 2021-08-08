@@ -8,7 +8,7 @@
 
 namespace ggp
 {
-    //! should not be instantiated
+    //! should not be instantiated by anything else then the World.
     class Object
     {
     public:
