@@ -14,7 +14,7 @@ namespace ggp
     class World
     {
     public:
-        World();
+        World():_counters{1,1}{};
 
         ObjectHandle AddObject(Object &obj);
         Object *GetObject(ObjectHandle handle);

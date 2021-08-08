@@ -2,13 +2,6 @@
 
 namespace ggp
 {
-    World::World()
-    {
-        // Set Counters
-        this->_counters[0] = 1;
-        this->_counters[1] = 1;
-    }
-
     void World::ShapeSetGlobalPosition(ShapeHandle handle, Vec2 globalPosition)
     {
         // Get The shape

@@ -33,7 +33,7 @@ namespace ggp
         // These Shapes can be re-enabled.
         bool _isDisabled;
 
-        Shape() : _isDead(false), _isDisabled(false){};
+        Shape() : _parent(0), _handle(0), _isDead(false), _isDisabled(false){};
     };
 
     class Rect : public Shape
@@ -41,6 +41,7 @@ namespace ggp
     public:
         Vec2 Size;
 
+        Rect(){};
         Rect(ObjectHandle parent, ShapeHandle self);
         Rect(ObjectHandle parent, ShapeHandle self, Vec2 position, Vec2 size);
 
@@ -58,6 +59,7 @@ namespace ggp
     public:
         fix16 Radius;
 
+        Circle();
         Circle(ObjectHandle parent, ShapeHandle self);
         Circle(ObjectHandle parent, ShapeHandle self, Vec2 position, float radius);
         Circle(ObjectHandle parent, ShapeHandle self, Vec2 position, fix16 radius);

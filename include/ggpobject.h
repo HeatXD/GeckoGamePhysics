@@ -12,10 +12,9 @@ namespace ggp
     class Object
     {
     public:
-        friend struct World;
+        friend class World;
 
         std::set<ShapeHandle> Shapes;
-
         Vec2 Position;
 
         void AddShape(ShapeHandle shape);
@@ -47,7 +46,7 @@ namespace ggp
 
     class Trigger : Object
     {
-        public:
+    public:
         Trigger(){};
         Trigger(ObjectHandle self);
         Trigger(ObjectHandle self, Vec2 position);
